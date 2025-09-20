@@ -1,0 +1,7 @@
+{
+  "debug.inlineValues": "on",
+  "debug.showBreakpointsInOverviewRuler": true,
+  "debug.showInlineBreakpointCandidates": true,
+  "editor.codeLens": true,
+  "javascript.preferences.includePackageJsonAutoImports": "auto"
+}
