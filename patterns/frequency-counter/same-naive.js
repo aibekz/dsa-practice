@@ -16,3 +16,7 @@ function same( arr1, arr2 ) {
 same( [ 1, 2, 3, 2 ], [ 9, 1, 4, 4 ] ); // true
 same( [ 1, 2, 3 ], [ 1, 9 ] ); // false
 same( [ 1, 2, 1 ], [ 4, 4, 1 ] ); // false  // must be same frequency
+
+// Time Complexity: O(n^2)
+// Space Complexity: O(1)
+// Naive version of same.js without frequency counter pattern
