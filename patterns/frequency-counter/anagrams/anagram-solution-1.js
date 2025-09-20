@@ -1,5 +1,6 @@
-// Anagrams
-// Given two strings, write a function to determine if the second string is an anagram of the first. An anagram is a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman.
+// Anagrams - Solution 1: Using for...of loops
+// Given two strings, write a function to determine if the second string is an anagram of the first. 
+// An anagram is a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman.
 
 // Examples:
 // validAnagram('cinema', 'iceman') // true
@@ -11,25 +12,17 @@ function validAnagram(str1, str2) {
   }
   const lookup = {};
 
+  // Build frequency counter for first string using for...of
   for(let val of str1) {
     lookup[val] = (lookup[val] || 0) + 1;
   }
 
+  // Decrement frequency counter for second string using for...of
   for(let val of str2) {
      lookup[val] ? (lookup[val] -= 1) : (lookup[val] = -1);
    }
-//   for (let i = 0; i < str1.length; i++) {
-//     let letter = str1[i];
-//     // if letter exists, increment, otherwise set to 1
-//     lookup[letter] ? (lookup[letter] += 1) : (lookup[letter] = 1);
-//   }
 
-//   for (let i = 0; i < str2.length; i++) {
-//     let letter = str2[i];
-//     // if letter exists, decrement, otherwise set to -1
-//     lookup[letter] ? (lookup[letter] -= 1) : (lookup[letter] = -1);
-//   }
-
+  // Check if all frequencies are zero
   for (let key in lookup) {
     if (lookup[key] !== 0) {
       return false;
@@ -48,4 +41,4 @@ console.log(validAnagram('texttwisttime', 'timetwisttext')); // true
 
 // Time Complexity: O(n)
 // Space Complexity: O(n)
-// Refactored version of validAnagram.js using frequency counter pattern
+// Uses for...of loops for cleaner syntax
