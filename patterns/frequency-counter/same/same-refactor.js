@@ -15,11 +15,9 @@ function same(arr1, arr2) {
   return true;
 }
 
-same([1, 2, 3, 2], [9, 1, 4, 4]); // true
-same([1, 2, 3], [1, 9]);
-// false
-same([1, 2, 1], [4, 4, 1]); // false  // must be same frequency
-
+console.log(same([1, 2, 3, 2], [9, 1, 4, 4])); // true
+console.log(same([1, 2, 3], [1, 9])); // false
+console.log(same([1, 2, 1], [4, 4, 1])); // false  // must be same frequency
 // Time Complexity: O(n)
 // Space Complexity: O(n)
 // Refactored version of same.js using frequency counter pattern
