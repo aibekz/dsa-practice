@@ -54,6 +54,17 @@ function factorial(n) {
 console.log(factorial(5)); // 120
 console.log(factorial(0)); // 1
 
+// non recursive version solving factorial
+function factorialIterative(n) {
+    let result = 1;
+    for (let i = n; i > 1; i--) {
+        result *= i;
+    }
+    return result;
+}
+console.log(factorialIterative(5)); // 120
+console.log(factorialIterative(0)); // 1
+
 // Time Complexity: O(n)
 // Space Complexity: O(n) due to call stack
 // This implementation of the factorial function uses recursion to calculate the factorial of a number.
@@ -103,3 +114,48 @@ function collectOddValues(arr) {
     helper(arr);
     return result;
 }
+
+console.log(collectOddValues([1, 2, 3, 4, 5])); // [1, 3, 5]
+// Time Complexity: O(n)
+// Space Complexity: O(n) due to call stack and result array
+// This function collects all odd values from an array using a helper method for recursion.
+// It checks if the first element is odd and adds it to the result array, then calls itself with the rest of the array until the array is empty.
+
+// Example: Collect Odd Values using Pure Recursion
+function collectOddValuesPure(arr) {
+    if (arr.length === 0) { // Base case
+        return [];
+    }
+    let newArr = [];
+    if (arr[0] % 2 !== 0) { // Check if the first element is odd
+        newArr.push(arr[0]);
+    }
+    // Recursive case with the rest of the array and concatenate results
+    return newArr.concat(collectOddValuesPure(arr.slice(1)));
+}
+
+console.log(collectOddValuesPure([1, 2, 3, 4, 5])); // [1, 3, 5]
+// Time Complexity: O(n)
+// Space Complexity: O(n) due to call stack and result array
+// This function collects all odd values from an array using pure recursion.
+// It checks if the first element is odd and adds it to a new array, then concatenates it with the result of calling itself with the rest of the array until the array is empty.
+
+// Note: Be cautious with recursion as it can lead to stack overflow if the recursion depth is too high.
+// Always ensure that your recursive functions have a proper base case to terminate the recursion.
+
+// Example: Fibonacci Sequence using Recursion
+function fibonacci(n) {
+    if (n <= 1) { // Base case
+        return n;
+    }
+    return fibonacci(n - 1) + fibonacci(n - 2); // Recursive case
+}
+console.log(fibonacci(6)); // 8
+console.log(fibonacci(10)); // 55
+// Time Complexity: O(2^n)
+// Space Complexity: O(n) due to call stack
+// This function calculates the nth Fibonacci number using recursion.
+// It adds the two preceding Fibonacci numbers until it reaches the base cases of 0 or 1.
+
+// Note: The recursive Fibonacci function is not efficient for large n due to its exponential time complexity.
+// An iterative or memoized approach is recommended for better performance.
