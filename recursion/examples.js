@@ -84,8 +84,43 @@ function flatten(oldArr){
 function capitalizeFirst (arr) {
     if(arr.length === 0) return [];
     let res = capitalizeFirst(arr.slice(0, -1));
-    let str = arr.slice(arr.length - 1)[0];
+    let str = arr.slice(arr[arr.length - 1]);
     res.push(str[0].toUpperCase() + str.slice(1));
     return res;
 }
 // capitalizeFirst(['car','taco','banana']); // ['Car','Taco','Banana']
+
+// nestedEvenSum SOLUTION
+function nestedEvenSum(obj, sum = 0) {
+    for (let key in obj) {
+        if (typeof obj[key] === 'object') {
+            sum += nestedEvenSum(obj[key]);
+        } else if (typeof obj[key] === 'number' && obj[key] % 2 === 0) {
+            sum += obj[key];
+        }
+    }
+    return sum;
+}
+// var obj1 = {
+//     outer: 2,
+//     obj: {
+//         inner: 2,
+//         otherObj: {
+//             superInner: 2,
+//             notANumber: true,
+//             alsoNotANumber: "yup"
+//         }
+//     }
+// }
+// nestedEvenSum(obj1); // 6
+// var obj2 = {
+//     a: 2,
+//     b: {b: 2, bb: {b: 3, bb: {b: 2}}},
+//     c: {c: {c: 2}, cc: 'ball', ccc: 5},
+//     d: 1,
+//     e: {e: {e: 2}, ee: 'car'}
+// };
+// nestedEvenSum(obj2); // 10
+
+// Space Complexity: O(n) due to call stack
+// Time Complexity: O(n) due to traversal of all keys in the object
