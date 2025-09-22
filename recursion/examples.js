@@ -63,3 +63,29 @@ function someRecursive(arr, callback){
 
 // Time Complexity: O(n)
 // Space Complexity: O(n) due to call stack
+
+// flatten SOLUTION
+function flatten(oldArr){
+  var newArr = []
+  	for(var i = 0; i < oldArr.length; i++){
+    	if(Array.isArray(oldArr[i])){
+      		newArr = newArr.concat(flatten(oldArr[i]))
+    	} else {
+      		newArr.push(oldArr[i])
+    	}
+  } 
+  return newArr;
+}
+// flatten([1,2,[3,4],5,[[6]]]); // [1,2,3,4,5,6]
+// Space Complexity: O(n) due to call stack
+// Time Complexity: O(n^2) due to concat method inside the loop
+
+// capitalizeFirst SOLUTION
+function capitalizeFirst (arr) {
+    if(arr.length === 0) return [];
+    let res = capitalizeFirst(arr.slice(0, -1));
+    let str = arr.slice(arr.length - 1)[0];
+    res.push(str[0].toUpperCase() + str.slice(1));
+    return res;
+}
+// capitalizeFirst(['car','taco','banana']); // ['Car','Taco','Banana']
