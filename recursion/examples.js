@@ -90,6 +90,31 @@ function capitalizeFirst (arr) {
 }
 // capitalizeFirst(['car','taco','banana']); // ['Car','Taco','Banana']
 
+// capitalizeWords 1
+function capitalizeWords (arr) {
+    if(arr.length === 0) return [];
+    let res = capitalizeWords(arr.slice(0, -1));
+    let str = arr.slice(arr[arr.length - 1]);
+    res.push(str[0].toUpperCase());
+    return res;
+}
+
+capitalizeFirst(['car','taco','banana']); // ['Car','Taco','Banana']
+
+// Time Complexity: O(n)
+// Space Complexity: O(n) due to call stack and result array
+
+// capitalizeWords 2
+function capitalizeWords (arr) {
+    if(arr.length === 0) return [];
+    return [arr[0].toUpperCase()].concat(capitalizeWords(arr.slice(1)));
+}
+
+capitalizeWords(['i', 'am', 'learning', 'recursion']); // ['I', 'AM', 'LEARNING', 'RECURSION']
+
+// Time Complexity: O(n)
+// Space Complexity: O(n) due to call stack and result array
+
 // nestedEvenSum SOLUTION
 function nestedEvenSum(obj, sum = 0) {
     for (let key in obj) {
