@@ -149,3 +149,45 @@ function nestedEvenSum(obj, sum = 0) {
 
 // Space Complexity: O(n) due to call stack
 // Time Complexity: O(n) due to traversal of all keys in the object
+
+
+// Stringify Numbers SOLUTION
+function stringifyNumbers(obj) {
+    let newObj = {};
+    for (let key in obj) {
+        if (typeof obj[key] === 'number') {
+            newObj[key] = obj[key].toString();
+        } else if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+            newObj[key] = stringifyNumbers(obj[key]);
+        } else {
+            newObj[key] = obj[key];
+        }
+    }
+    return newObj;
+}
+// var obj = {
+//     num: 1,
+//     test: [],
+//     data: {
+//         val: 4,
+//         info: {
+//             isRight: true,
+//             random: 66
+//         }
+//     }
+// }
+// stringifyNumbers(obj);
+// // {
+// //     num: "1",
+// //     test: [],
+// //     data: {
+// //         val: "4",
+// //         info: {
+// //             isRight: true,
+// //             random: "66"
+// //         }
+// //     }
+// // }
+
+// Space Complexity: O(n) due to call stack and new object
+// Time Complexity: O(n) due to traversal of all keys in the object
