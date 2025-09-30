@@ -19,7 +19,7 @@ function bubbleSort(arr) {
                console.log("  Comparing:", arr[j], "and", arr[j + 1]);
                   if (arr[j] > arr[j + 1]) {
                      console.log("  Swapping:", arr[j], "and", arr[j + 1]);
-                        swap2(arr, j, j + 1);
+                        swap1(arr, j, j + 1);
                   }
             }
       }
@@ -58,7 +58,7 @@ function betterBubbleSort(arr) {
     for (let j = 0; j < n - i - 1; j++) {
       // compare and swap if needed
       if (arr[j] > arr[j + 1]) {
-        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]; // ES6 swap
+        swap2(arr, j, j + 1);
         swapped = true;
       }
     }
